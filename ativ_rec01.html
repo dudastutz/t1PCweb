@@ -421,6 +421,34 @@ btn03.addEventListener("click", () => {
     console.log(lances[1])
     
     //atualize a tabela com seus valores
+    OcorrDado1 = document.querySelector(".face-ocorr-1")   
+    OcorrDado2 = document.querySelector(".face-ocorr-2")
+    OcorrDado3 = document.querySelector(".face-ocorr-3")
+    OcorrDado4 = document.querySelector(".face-ocorr-4")
+    OcorrDado5 = document.querySelector(".face-ocorr-5")
+    OcorrDado6 = document.querySelector(".face-ocorr-6")
+
+    OcorrDado1.textContent = lances[0]
+    OcorrDado2.textContent = lances[1]
+    OcorrDado3.textContent = lances[2]
+    OcorrDado4.textContent = lances[3]
+    OcorrDado5.textContent = lances[4]
+    OcorrDado6.textContent = lances[5]
+
+    FreqDado1 = document.querySelector(".face-freq-1")   
+    FreqDado2 = document.querySelector(".face-freq-2")
+    FreqDado3 = document.querySelector(".face-freq-3")
+    FreqDado4 = document.querySelector(".face-freq-4")
+    FreqDado5 = document.querySelector(".face-freq-5")
+    FreqDado6 = document.querySelector(".face-freq-6")
+
+    FreqDado1.textContent = (lances[0] / 1000000 * 100) + "%"
+    FreqDado2.textContent = (lances[1]/ 1000000 * 100 ) + "%"
+    FreqDado3.textContent = (lances[2]/ 1000000 * 100 ) + "%"
+    FreqDado4.textContent = (lances[3]/ 1000000 * 100 ) + "%"
+    FreqDado5.textContent = (lances[4]/ 1000000 * 100 ) + "%"
+    FreqDado6.textContent = (lances[5]/ 1000000 * 100 ) + "%"
+
 })
 
 /*****************************************
@@ -437,9 +465,13 @@ const insereNome = nome => {
 }
 
 const inverteNome = nome => {
-    //programe inverte nome aqui
-    return "teste"
-}
+    let nomeInvertido = "";
+    let tamanho = nome.length;
+    for (let i = 0; i < tamanho; i++) {
+        nomeInvertido = nome[i] + nomeInvertido;
+    }
+    return nomeInvertido;
+};
 
 // insere nome digitado
 btnAddNome.addEventListener("click", () => {
@@ -466,14 +498,21 @@ btn04.addEventListener("click", ()=>{
 //funcao que retorna o nome digitado
 const getPalavra = () => document.querySelector("#q05-palavra").value
 
+const invertePalavras = palavra => {
+    let palavraInvertida = "";
+    let tamanho = palavra.length;
+    for (let i = 0; i < tamanho; i++) {
+        palavraInvertida = palavra[i] + palavraInvertida;
+    }
+    return palavraInvertida;
+};
+
 const verificaPalindromo = (palavra) => {
-    //palavra[0] == palavra[palavra.length-1]
-    //palavra[1] == palavra[palavra.length-2] 
-    //palavra[2] == palavra[palavra.length-3] ...
-    // até chegar no meio; se todas iguais, é palíndromo
-    // caso contrário, não
-    return false // programe aqui
-}
+    const palavraInvertida = invertePalavras(palavra);
+    return palavra === palavraInvertida;
+};
+   
+
 btn05.addEventListener("click", () => {
     const palavra = getPalavra()
     const resp = document.querySelector("#q05-result")
@@ -484,3 +523,5 @@ btn05.addEventListener("click", () => {
 })
 </script>
 </html>
+
+    
